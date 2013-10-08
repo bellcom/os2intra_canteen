@@ -25,22 +25,29 @@ function os2intra_canteen_views_default_views() {
   $handler->display->display_options['title'] = 'OS2Intra canteen menu';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mere';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Udfør';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Gendan';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortér efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigende';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Faldende';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* No results behavior: Global: Text area */
+  /* Opførsel ved ingen resultater: Global: Tekstområde */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'Der blev ikke fundet noget';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
-  /* Relationship: Content: Taxonomy terms on node */
+  /* Forbindelse: Indhold: Taksonomitermer på node */
   $handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
   $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
   $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
@@ -49,64 +56,68 @@ function os2intra_canteen_views_default_views() {
     'os2intra_organizaiton_tax' => 0,
     'tags' => 0,
   );
-  /* Field: Content: Date */
+  /* Felt: Indhold: Date */
   $handler->display->display_options['fields']['field_os2intra_canteen_menu_date']['id'] = 'field_os2intra_canteen_menu_date';
   $handler->display->display_options['fields']['field_os2intra_canteen_menu_date']['table'] = 'field_data_field_os2intra_canteen_menu_date';
   $handler->display->display_options['fields']['field_os2intra_canteen_menu_date']['field'] = 'field_os2intra_canteen_menu_date';
   $handler->display->display_options['fields']['field_os2intra_canteen_menu_date']['label'] = '';
   $handler->display->display_options['fields']['field_os2intra_canteen_menu_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2intra_canteen_menu_date']['settings'] = array(
-    'format_type' => 'day',
+    'format_type' => 'medium',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Sorteringskriterie: Indhold: Date (field_os2intra_canteen_menu_date) */
+  $handler->display->display_options['sorts']['field_os2intra_canteen_menu_date_value']['id'] = 'field_os2intra_canteen_menu_date_value';
+  $handler->display->display_options['sorts']['field_os2intra_canteen_menu_date_value']['table'] = 'field_data_field_os2intra_canteen_menu_date';
+  $handler->display->display_options['sorts']['field_os2intra_canteen_menu_date_value']['field'] = 'field_os2intra_canteen_menu_date_value';
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'os2intra_canteen_menu' => 'os2intra_canteen_menu',
   );
-  /* Filter criterion: Content: Has taxonomy terms (with depth) */
+  /* Filterkriterie: Indhold: Har taksonomitermer (med dybde) */
   $handler->display->display_options['filters']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
   $handler->display->display_options['filters']['term_node_tid_depth']['table'] = 'node';
   $handler->display->display_options['filters']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
   $handler->display->display_options['filters']['term_node_tid_depth']['exposed'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator_id'] = 'term_node_tid_depth_op';
-  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['label'] = 'Kantine';
+  $handler->display->display_options['filters']['term_node_tid_depth']['expose']['label'] = 'Vælg Kantine:';
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['operator'] = 'term_node_tid_depth_op';
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['identifier'] = 'term_node_tid_depth';
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['remember'] = TRUE;
   $handler->display->display_options['filters']['term_node_tid_depth']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
+    4 => 0,
+    7 => 0,
+    5 => 0,
+    8 => 0,
     3 => 0,
+    6 => 0,
   );
   $handler->display->display_options['filters']['term_node_tid_depth']['type'] = 'select';
   $handler->display->display_options['filters']['term_node_tid_depth']['vocabulary'] = 'os2intra_canteen';
   $handler->display->display_options['filters']['term_node_tid_depth']['depth'] = '0';
-  /* Filter criterion: Content: Date (field_os2intra_canteen_menu_date) */
+  /* Filterkriterie: Indhold: Date (field_os2intra_canteen_menu_date) */
   $handler->display->display_options['filters']['field_os2intra_canteen_menu_date_value']['id'] = 'field_os2intra_canteen_menu_date_value';
   $handler->display->display_options['filters']['field_os2intra_canteen_menu_date_value']['table'] = 'field_data_field_os2intra_canteen_menu_date';
   $handler->display->display_options['filters']['field_os2intra_canteen_menu_date_value']['field'] = 'field_os2intra_canteen_menu_date_value';
@@ -115,6 +126,20 @@ function os2intra_canteen_views_default_views() {
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
+  $translatables['os2intra_canteen_menu'] = array(
+    t('Master'),
+    t('OS2Intra canteen menu'),
+    t('mere'),
+    t('Udfør'),
+    t('Gendan'),
+    t('Sortér efter'),
+    t('Stigende'),
+    t('Faldende'),
+    t('Der blev ikke fundet noget'),
+    t('term'),
+    t('Vælg Kantine:'),
+    t('Block'),
+  );
   $export['os2intra_canteen_menu'] = $view;
 
   return $export;

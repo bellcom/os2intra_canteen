@@ -7,7 +7,8 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function os2intra_canteen_ctools_plugin_api($module = NULL, $api = NULL) {
+function os2intra_canteen_ctools_plugin_api() {
+  list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -16,7 +17,7 @@ function os2intra_canteen_ctools_plugin_api($module = NULL, $api = NULL) {
 /**
  * Implements hook_views_api().
  */
-function os2intra_canteen_views_api($module = NULL, $api = NULL) {
+function os2intra_canteen_views_api() {
   return array("api" => "3.0");
 }
 
@@ -30,7 +31,7 @@ function os2intra_canteen_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
   );
