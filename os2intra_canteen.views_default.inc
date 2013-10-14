@@ -22,7 +22,7 @@ function os2intra_canteen_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'OS2Intra canteen menu';
+  $handler->display->display_options['title'] = 'Dagens ret';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mere';
@@ -128,7 +128,7 @@ function os2intra_canteen_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block');
   $translatables['os2intra_canteen_menu'] = array(
     t('Master'),
-    t('OS2Intra canteen menu'),
+    t('Dagens ret'),
     t('mere'),
     t('Udfør'),
     t('Gendan'),
