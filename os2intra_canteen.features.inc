@@ -27,7 +27,7 @@ function os2intra_canteen_views_api() {
 function os2intra_canteen_node_info() {
   $items = array(
     'os2intra_canteen_menu' => array(
-      'name' => t('os2intra_canteen_menu'),
+      'name' => t('Dagens ret/menu'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

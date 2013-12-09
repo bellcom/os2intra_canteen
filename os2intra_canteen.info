@@ -20,6 +20,7 @@ features[node][] = os2intra_canteen_menu
 features[taxonomy][] = os2intra_canteen
 features[variable][] = date_format_day
 features[variable][] = field_bundle_settings_node__os2intra_canteen_menu
+features[variable][] = language_content_type_os2intra_canteen_menu
 features[variable][] = menu_options_os2intra_canteen_menu
 features[variable][] = menu_parent_os2intra_canteen_menu
 features[variable][] = node_options_os2intra_canteen_menu

@@ -39,7 +39,7 @@ function os2intra_canteen_field_default_field_bases() {
           'parent' => 0,
         ),
       ),
-      'options_list_callback' => 'content_taxonomy_allowed_values',
+      'options_list_callback' => '_taxonomy_access_term_options',
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
